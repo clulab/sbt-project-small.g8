@@ -20,5 +20,5 @@ ThisBuild / initialize := {
   if (approved)
     sLog.value.info(s"Java \$current was detected and approved.")
   else
-    sLog.value.error(s"Unsupported Java version: Eidos requires \$required but found \$current instead.")
+    sLog.value.error(s"Unsupported Java version: Project requires \$required but found \$current instead.")
 }
