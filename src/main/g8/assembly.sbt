@@ -5,7 +5,7 @@ assembly / assemblyMergeStrategy := {
   // This is nearly the same as case _ => MergeStrategy.defaultMergeStrategy with the most important difference
   // being that any problem noticed by deduplicate will halt the process.  The is presently/temporarily
   // preferred over a version that will silently handle new conflicts without alerting us to the potential problem.
-  case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard // We'll make a new manifest for Eidos.
+  case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard // We'll make a new manifest for the project.
   case PathList("META-INF", "DEPENDENCIES") => MergeStrategy.discard // All dependencies will be included in the assembly already.
   case PathList("module-info.class")        => MergeStrategy.discard // This might not be right, but it stops the complaints.
   case PathList("META-INF", "LICENSE")      => MergeStrategy.concat  // Concatenate everyone's licenses and notices.
