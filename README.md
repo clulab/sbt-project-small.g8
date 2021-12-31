@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/clulab/sbt-project-small.g8.svg?branch=main)](https://travis-ci.org/clulab/sbt-project-small.g8)
+
+[comment]: # [![Build Status](https://travis-ci.org/clulab/sbt-project-small.g8.svg?branch=main)](https://travis-ci.org/clulab/sbt-project-small.g8)
+[![Build Status](https://github.com/clulab/sbt-project-small.g8/workflows/sbt-project-small%20CI/badge.svg)](https://github.com/clulab/sbt-project-small.g8/actions)
 
 # sbt-project-small.g8
 
