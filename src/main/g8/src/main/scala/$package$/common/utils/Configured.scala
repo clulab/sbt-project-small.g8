@@ -2,7 +2,7 @@ package $package$.common.utils
 
 import com.typesafe.config.{Config, ConfigFactory}
 
-import scala.jdk.JavaConverters._
+import scala.jdk.CollectionConverters._
 
 /**
  * Classes that are configured with com.typesafe.config.Config

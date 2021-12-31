@@ -29,7 +29,7 @@ libraryDependencies ++= {
 
   Seq(
     // local logging
-    "ch.qos.logback"              % "logback-classic"         % "1.2.10",       // as of 2021-12-31 up to up to 1.2.10
+    "ch.qos.logback"              % "logback-classic"         % "1.2.10",       // as of 2021-12-31 up to 1.2.10
     "com.typesafe.scala-logging" %% "scala-logging"           % "3.9.4",        // as of 2021-12-31 up to 3.9.4
     // config
     "com.typesafe"                % "config"                  % "1.4.1",        // as of 2021-12-31 up to 1.4.1
