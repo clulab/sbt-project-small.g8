@@ -41,8 +41,11 @@ libraryDependencies ++= {
 
 lazy val core = (project in file("."))
   .enablePlugins(BuildInfoPlugin)
-  .disablePlugins(PlayScala, JavaAppPackaging, SbtNativePackager)
+  .enablePlugins(DockerPlugin)
+  .enablePlugins(JavaAppPackaging)
+  .disablePlugins(PlayScala) // , SbtNativePackager)
   .settings(
     assembly / mainClass := Some("$package$.apps.HelloWorldApp")
   )
 
+addCommandAlias("dockerize", ";docker:publishLocal")

@@ -5,9 +5,10 @@ import com.typesafe.sbt.packager.docker.{Cmd, CmdLike, DockerChmodType, DockerPe
 val topDir = "/$name$"
 val appDir = topDir + "/app"
 val binDir = appDir + "/bin/" // The second half is determined by the plug-in.  Don't change.
-val app = binDir + "HelloWorldApp"
+// val app = binDir + "HelloWorldApp"
+val app = binDir + "$name$" // If there is only one app, it seems to get the name of the project.
 // val port = 9000
-val tag = core / version
+val tag = "1.0.0" // Coordinate with version.sbt.
 
 Docker / defaultLinuxInstallLocation := appDir
 Docker / dockerBaseImage := "openjdk:8"
@@ -19,16 +20,16 @@ Docker / mappings := (Docker / mappings).value.filter { case (_, string) =>
   // might be automatically discovered are to be excluded.
   !string.startsWith(binDir) || string == app
 }
-Docker / packageName := "$name$App"
+Docker / packageName := "$name$"
 Docker / version := tag
 
 dockerAdditionalPermissions += (DockerChmodType.UserGroupPlusExecute, app)
 dockerChmodType := DockerChmodType.UserGroupWriteExecute
-// dockerCmd := Seq(s"-Dhttp.port=$port")
+// dockerCmd := Seq(s"-Dhttp.port=\$port")
 dockerEntrypoint := Seq(app)
 dockerEnvVars := Map(
 //  "_JAVA_OPTIONS" -> "-Xmx10g -Xms10g -Dfile.encoding=UTF-8"
-  "-Dfile.encoding=UTF-8"
+  "_JAVA_OPTIONS" -> "-Dfile.encoding=UTF-8"
 )
 dockerPermissionStrategy := DockerPermissionStrategy.MultiStage
 dockerUpdateLatest := true
@@ -56,7 +57,7 @@ def moveDir(dirname: String): Seq[(File, String)] = {
     .map { case (file, _) => (file, file.getPath) }
 
   //  result.foreach { case (file, string) =>
-  //    println(s"$file -> $string")
+  //    println(s"\$file -> \$string")
   //  }
   result
 }
