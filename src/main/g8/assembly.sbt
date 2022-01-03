@@ -8,10 +8,11 @@ assembly / assemblyMergeStrategy := {
   case PathList("META-INF", "MANIFEST.MF")  => MergeStrategy.discard // We'll make a new manifest for the project.
   case PathList("META-INF", "DEPENDENCIES") => MergeStrategy.discard // All dependencies will be included in the assembly already.
   case PathList("module-info.class")        => MergeStrategy.discard // This might not be right, but it stops the complaints.
-  case PathList("META-INF", "LICENSE")      => MergeStrategy.concat  // Concatenate everyone's licenses and notices.
-  case PathList("META-INF", "LICENSE.txt")  => MergeStrategy.concat
-  case PathList("META-INF", "NOTICE")       => MergeStrategy.concat
-  case PathList("META-INF", "NOTICE.txt")   => MergeStrategy.concat
+  // Rename everyone's licenses and notices.
+  case PathList("META-INF", "LICENSE")      => MergeStrategy.rename
+  case PathList("META-INF", "LICENSE.txt")  => MergeStrategy.rename
+  case PathList("META-INF", "NOTICE")       => MergeStrategy.rename
+  case PathList("META-INF", "NOTICE.txt")   => MergeStrategy.rename
   // These all have different contents and cannot be automatically deduplicated.
   case PathList("reference.conf") => MergeStrategy.concat // Scala configuration files--important!
   case PathList("META-INF", "services", "org.apache.lucene.codecs.PostingsFormat")    => MergeStrategy.filterDistinctLines
