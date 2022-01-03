@@ -20,7 +20,7 @@ Docker / mappings := (Docker / mappings).value.filter { case (_, string) =>
   // might be automatically discovered are to be excluded.
   !string.startsWith(binDir) || string == app
 }
-Docker / packageName := "$name$"
+Docker / packageName := "$docker$"
 Docker / version := tag
 
 dockerAdditionalPermissions += (DockerChmodType.UserGroupPlusExecute, app)
